@@ -28,6 +28,7 @@ namespace Teme
             SwpaComma();
             RemoveSpace();
             Palindrome();
+            //
                        
 
             //1.Write a method that to remove the nth index character from a nonempty string.
