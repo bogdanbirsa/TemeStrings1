@@ -10,7 +10,7 @@ namespace Teme
     {
         static void Main(string[] args)
         {
-
+            /*
             somestring();
             RemoveOdd();
             UpperAndLower();
@@ -28,8 +28,10 @@ namespace Teme
             SwpaComma();
             RemoveSpace();
             Palindrome();
-            //
-                       
+            SingleString();
+            GetBeforeChar();
+            */
+
 
             //1.Write a method that to remove the nth index character from a nonempty string.
             static void somestring()
@@ -218,12 +220,18 @@ namespace Teme
 
 
             //17.Write a method to get a string from a given string where all occurrences of its first char have been changed to '$', except the first char itself
-
+            
 
 
             //18.Write a method to get a single string from two given strings, separated by a space and swap the first two characters of each string
-
-
+            static void SingleString()
+            {
+                string str = "super exemple of string key : text I want to keep - end of my string";
+                int startIndex = str.IndexOf("key") + "key".Length;
+                int endIndex = str.IndexOf("-");
+                string newString = str.Substring(startIndex, endIndex - startIndex);
+                Console.WriteLine(newString);
+            }
 
             //19.Write a method to find the first appearance of the substring 'not' and 'poor' from a given string, 
             //if 'not' follows the 'poor', replace the whole 'not'...'poor' substring with 'good'. Return the resulting string
@@ -252,8 +260,12 @@ namespace Teme
 
 
             //21.Write a method to get the last part of a string before a specified character
-
-
+            static void GetBeforeChar()
+            {
+                string authors = "Vasile Alecsandri - Nicolae Iorga - Emil Cioran, Mihai Eminescu, Octavian Blaga";
+                string stringBeforeChar = authors.Substring(0, authors.IndexOf(","));
+                Console.WriteLine(stringBeforeChar);
+            }
 
             //22.Write a method to check whether a string starts with specified characters
             static void CheckStartWord()
