@@ -10,7 +10,7 @@ namespace Teme
     {
         static void Main(string[] args)
         {
-            /*
+
             somestring();
             RemoveOdd();
             UpperAndLower();
@@ -22,6 +22,7 @@ namespace Teme
             ToLower();
             Characters();
             CensorEmail();
+            changeExceptFirst();
             LongestWord();
             CheckStartWord();
             CountOccurrences();
@@ -30,7 +31,7 @@ namespace Teme
             Palindrome();
             SingleString();
             GetBeforeChar();
-            */
+
 
 
             //1.Write a method that to remove the nth index character from a nonempty string.
@@ -161,13 +162,8 @@ namespace Teme
 
 
 
-            /*
-            //11.Write a method to capitalize first and last letters of each word of a given string
 
-            string r = "capitala romaniei este bucuresti";
-            r = Regex.Replace(r, @"(^\w)|(\s\w)", m => m.Value.ToUpper());
-            Console.WriteLine(r);
-            */
+            //11.Write a method to capitalize first and last letters of each word of a given string
 
 
             //12.Write a method to compute sum of digits of a given string(if any)
@@ -220,7 +216,19 @@ namespace Teme
 
 
             //17.Write a method to get a string from a given string where all occurrences of its first char have been changed to '$', except the first char itself
-            
+            static void changeExceptFirst()
+            {
+                Console.WriteLine("Enter string: ");
+                string myString = Console.ReadLine();
+
+                for (int i = 1; i < myString.Length; i++)
+                    if (myString[i] == myString[0])
+                    {
+                        myString = myString.Insert(i, "$");
+                        myString = myString.Remove(i + 1, 1);
+                    }
+                Console.WriteLine(myString);
+            }
 
 
             //18.Write a method to get a single string from two given strings, separated by a space and swap the first two characters of each string
