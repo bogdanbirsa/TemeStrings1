@@ -10,7 +10,7 @@ namespace Teme
     {
         static void Main(string[] args)
         {
-
+            /*
             somestring();
             RemoveOdd();
             UpperAndLower();
@@ -20,9 +20,15 @@ namespace Teme
             DisplayChar();
             Percentage();
             ToLower();
+            strip();  
+            sum();
             Characters();
+            addIngLy();
+            firstLastChar();
             CensorEmail();
             changeExceptFirst();
+            SingleString();
+            notPoor();
             LongestWord();
             CheckStartWord();
             CountOccurrences();
@@ -31,7 +37,7 @@ namespace Teme
             Palindrome();
             SingleString();
             GetBeforeChar();
-
+            */
 
 
             //1.Write a method that to remove the nth index character from a nonempty string.
@@ -159,28 +165,36 @@ namespace Teme
 
 
             //10.Write a method that strips a set of characters from a string
-
-
+            static void strip()
+            {
+                string stripSetOfStrings = "Din-aceasta propozitie se elimina cateva caractere!";
+                Console.WriteLine(stripSetOfStrings);
+                Console.WriteLine("se modifica in");
+                string modifiedString = stripSetOfStrings.Replace("D", " ").Replace("-", " ").Replace("p", " ").Replace("r", " ").Replace("o", " ");
+                Console.WriteLine(modifiedString);
+            }
 
 
             //11.Write a method to capitalize first and last letters of each word of a given string
 
 
+
             //12.Write a method to compute sum of digits of a given string(if any)
-
-            string o = "bar445ule872scu";
-            int sum = 0;
-            var bog = o.ToCharArray();
-            Console.WriteLine(o);
-            for (int i = 0; i <= o.Length - 1; i++)
+            static void sum()
             {
-                if (o[i] > '0' && o[i] <= '9')
+                string o = "bar445ule872scu";
+                int sum = 0;
+                var bog = o.ToCharArray();
+                Console.WriteLine(o);
+                for (int i = 0; i <= o.Length - 1; i++)
                 {
-                    sum += o[i] - '0';
+                    if (o[i] > '0' && o[i] <= '9')
+                    {
+                        sum += o[i] - '0';
+                    }
                 }
+                Console.WriteLine(sum);
             }
-            Console.WriteLine(sum);
-
 
             //13.You will get a text from where you will need to clean the text because it contains a lot of strange characters that don’t belong there ( ^ <, > &+ @%$)
             //Hi ^> there << I’m + telling %% you, you & need % to$ do &your $homeworks.@Hate ^ me ^ % now % and % thank % me & later.
@@ -195,7 +209,18 @@ namespace Teme
 
             //14.Write a method to add 'ing' at the end of a given string (length should be at least 3). 
             //If the given string already ends with 'ing' then add 'ly' instead. If the string length of the given string is less than 3, leave it unchanged.
-
+            static void addIngLy()
+            {
+                string bau = "villy";
+                if (bau.Length >= 3)
+                {
+                    if (bau.Substring(bau.Length - 3) == "ing")
+                        bau = bau + "ly";
+                    else
+                        bau = bau + "ing";
+                }
+                Console.WriteLine(bau);
+            }
 
 
             // 15.You have some text that contains your email address.And you want to hide that. You decide to censor your email:
@@ -212,8 +237,16 @@ namespace Teme
 
             //16.Write a method to get a string made of the first 2 and the last 2 chars from a given a string. 
             //If the string length is less than 2, return instead of the empty string
+            static void firstLastChar()
+            {
+                string firstLast = "aceasta este propozitia mea";
+                if (firstLast.Length < 2)
+                    firstLast = "empty string";
+                else
+                    firstLast = firstLast[0].ToString() + firstLast[1].ToString() + firstLast[firstLast.Length - 2].ToString() + firstLast[firstLast.Length - 1].ToString();
+                Console.WriteLine($"Output: {firstLast}");
 
-
+            }
 
             //17.Write a method to get a string from a given string where all occurrences of its first char have been changed to '$', except the first char itself
             static void changeExceptFirst()
@@ -234,8 +267,8 @@ namespace Teme
             //18.Write a method to get a single string from two given strings, separated by a space and swap the first two characters of each string
             static void SingleString()
             {
-                string str = "super exemple of string key : text I want to keep - end of my string";
-                int startIndex = str.IndexOf("key") + "key".Length;
+                string str = "exemplu de string: textul ce vreau sa il pastrez - starsitul stringului";
+                int startIndex = str.IndexOf("string") + "string".Length;
                 int endIndex = str.IndexOf("-");
                 string newString = str.Substring(startIndex, endIndex - startIndex);
                 Console.WriteLine(newString);
@@ -243,8 +276,22 @@ namespace Teme
 
             //19.Write a method to find the first appearance of the substring 'not' and 'poor' from a given string, 
             //if 'not' follows the 'poor', replace the whole 'not'...'poor' substring with 'good'. Return the resulting string
+            static void notPoor()
+            {
+                string input1 = "The Romanians are not that poor!";
+                Console.WriteLine($"{input1} => {NotPoor(input1)}.");
+                string input2 = "The Romanians are poor!";
+                Console.WriteLine($"{input2} => {NotPoor(input2)}.");
+            }
 
-
+            static string NotPoor(string input)
+            {
+                if (input.Contains("not") && input.IndexOf("not") < input.IndexOf("poor"))
+                {
+                    return input.Substring(0, input.IndexOf("not")) + "good" + input.Substring(input.IndexOf("poor") + 4);
+                }
+                return input;
+            }
 
 
             //20.Write a method that takes a list of words and returns the length of the longest one
