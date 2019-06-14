@@ -10,52 +10,59 @@ namespace Teme
     {
         static void Main(string[] args)
         {
-            /*
-            somestring();
-            RemoveOdd();
-            UpperAndLower();
-            ReverseString();
-            ConvertUpper();
-            RemoveNewLine();
-            DisplayChar();
-            Percentage();
-            ToLower();
-            strip();  
-            sum();
-            Characters();
-            addIngLy();
-            firstLastChar();
-            CensorEmail();
-            changeExceptFirst();
-            SingleString();
-            notPoor();
-            LongestWord();
-            CheckStartWord();
-            CountOccurrences();
-            SwpaComma();
-            RemoveSpace();
-            Palindrome();
-            SingleString();
-            GetBeforeChar();
-            */
+
+            //Somestring();
+            //RemoveOdd();
+            //UpperAndLower();
+            //ReverseString();
+            //Console.WriteLine(ConvertUpper("BiRsaBogdaN"));
+            //RemoveNewLine();
+            // DisplayChar();
+            //Percentage();
+            //ToLower();
+            //StripSet("Acesta este un sir foarte lung de cuvinte", ' ');
+            //Capitalize();
+            //Sum();
+            //Console.WriteLine(Characters("Hi ^> there << I’m + telling %% you, you & need % to$ do &your $homeworks.@Hate ^ me ^ % now % and % thank % me & later"));
+            //AddIngLy();
+            //FirstLastChar();
+            //CensorEmail();
+            //ChangeExceptFirst();
+            //SingleString();
+            //NotThatPoor();
+            //LongestWord();
+            //CheckStartWord();
+            //CountOccurrences();
+            //SwapComma();
+            //RemoveSpace();
+            //Palindrome();
+            //SingleString();
+            // GetBeforeChar();
+            //ObfucateEmail();
 
 
             //1.Write a method that to remove the nth index character from a nonempty string.
-            static void somestring()
+            static void Somestring() //refacut
             {
-                string somestring = "bogdan incearca sa faca temele";
-                StringBuilder bb = new StringBuilder(somestring);
-                bb.Remove(7, 9);
-                somestring = bb.ToString();
-                Console.WriteLine(somestring);
+
+                string s = "bogdan incearca sa faca temele";
+                int n = 0;
+                if (s != string.Empty && s.Length >= n)
+                    Console.WriteLine(s.Remove(n, 5));
+                else
+                    Console.WriteLine(s);
             }
 
 
             //2.Write a method that to remove the characters which have odd index values of a given string
-            static void RemoveOdd()
+            static void RemoveOdd() //refacut
             {
-                string s = "teleenciclopedia";
-                StringBuilder ss = new StringBuilder(s);
+                string s = "teleenciclopediaaa";
+                int n;
+                if (s.Length % 2 == 1)
+                    n = s.Length;
+                else
+                    n = s.Length - 1;
                 for (int i = 0; i <= s.Length; i++)
                 {
                     if (IsOdd(i))
@@ -64,9 +71,9 @@ namespace Teme
                     }
                 }
             }
-            static bool IsOdd(int value)
+            static bool IsOdd(int n)
             {
-                return value % 2 != 1;
+                return n % 2 != 1;
             }
 
 
@@ -106,20 +113,21 @@ namespace Teme
 
 
             //5.Write method to convert a given string to all uppercase if it contains at least 2 uppercase characters in the first 4 characters
-            static void ConvertUpper()
+            static string ConvertUpper(string brb) //refacut
             {
-                Console.Write("Please enter the text: ");
-                string brb = Console.ReadLine();
-                for (int i = 0; i < brb.Length; i++)
+                int nrUpper = 0;
+                for (int i = 0; i < 4; i++)
                 {
-                    if (brb.Length < 4)
-
-                        Console.WriteLine(brb.Substring(0, 4).ToUpper() + brb.Substring(2, brb.Length - 4));
+                    if (brb[i].ToString().Equals(brb[i].ToString().ToUpper()))
+                        nrUpper++;
                 }
 
-
-                Console.WriteLine(brb.ToLower());
+                if (nrUpper >= 2)
+                    return brb.ToUpper();
+                else
+                    return brb;
             }
+
 
 
 
@@ -145,10 +153,10 @@ namespace Teme
 
 
             //8.Write a method that formats a number with a percentage
-            static void Percentage()
+            static void Percentage() //refacut
             {
-                double val = .975746;
-                Console.WriteLine(val.ToString("P", CultureInfo.InvariantCulture));
+                double val = 0.12;
+                Console.WriteLine(val.ToString("P2"));
             }
 
 
@@ -165,22 +173,30 @@ namespace Teme
 
 
             //10.Write a method that strips a set of characters from a string
-            static void strip()
+            static void StripSet(string a, char b) //refacut
             {
-                string stripSetOfStrings = "Din-aceasta propozitie se elimina cateva caractere!";
-                Console.WriteLine(stripSetOfStrings);
-                Console.WriteLine("se modifica in");
-                string modifiedString = stripSetOfStrings.Replace("D", " ").Replace("-", " ").Replace("p", " ").Replace("r", " ").Replace("o", " ");
-                Console.WriteLine(modifiedString);
+                string[] strip = a.Split(b);
+                for (int i = 0; i < strip.Length; i++)
+                {
+                    Console.WriteLine(strip[i].ToString());
+                }
             }
 
 
             //11.Write a method to capitalize first and last letters of each word of a given string
+            static void Capitalize()
+            {
+                string bogdan = "skoda superb";
+                Console.WriteLine($"index of a:{bogdan.IndexOf('s')}"); //first index
+                Console.WriteLine($"index of a:{bogdan.LastIndexOf('b')}"); //last index
+                string upperbogdan = bogdan.ToUpper();
+                Console.WriteLine(upperbogdan);
 
+            }
 
 
             //12.Write a method to compute sum of digits of a given string(if any)
-            static void sum()
+            static void Sum()
             {
                 string o = "bar445ule872scu";
                 int sum = 0;
@@ -199,17 +215,19 @@ namespace Teme
             //13.You will get a text from where you will need to clean the text because it contains a lot of strange characters that don’t belong there ( ^ <, > &+ @%$)
             //Hi ^> there << I’m + telling %% you, you & need % to$ do &your $homeworks.@Hate ^ me ^ % now % and % thank % me & later.
             //Hi there I’m telling you, you need to do your homeworks. Hate me now and thank me later.
-            static void Characters()
+            static string Characters(string a) //refacut
             {
-                string x = "Hi ^> there << I’m + telling %% you, you & need % to$ do &your $homeworks.@Hate ^ me ^ % now % and % thank % me & later";
-                string modifiedString = x.Replace("^", "").Replace("<", "").Replace(",", "").Replace(">", "").Replace("&", "").Replace("+", "").Replace("@", " ").Replace("%", "").Replace("$", "");
-                Console.WriteLine(modifiedString);
+                string[] modifiedString = new string[] { "^", "<", ",", ">", "&", "+", "@", "%", "$" };
+                for (int i = 0; i < modifiedString.Length; i++)
+                {
+                    a = a.Replace(modifiedString[i], String.Empty);
+                }
+                return a;
             }
-
 
             //14.Write a method to add 'ing' at the end of a given string (length should be at least 3). 
             //If the given string already ends with 'ing' then add 'ly' instead. If the string length of the given string is less than 3, leave it unchanged.
-            static void addIngLy()
+            static void AddIngLy()
             {
                 string bau = "villy";
                 if (bau.Length >= 3)
@@ -237,7 +255,7 @@ namespace Teme
 
             //16.Write a method to get a string made of the first 2 and the last 2 chars from a given a string. 
             //If the string length is less than 2, return instead of the empty string
-            static void firstLastChar()
+            static void FirstLastChar()
             {
                 string firstLast = "aceasta este propozitia mea";
                 if (firstLast.Length < 2)
@@ -249,17 +267,19 @@ namespace Teme
             }
 
             //17.Write a method to get a string from a given string where all occurrences of its first char have been changed to '$', except the first char itself
-            static void changeExceptFirst()
+            static void ChangeExceptFirst() //refacut
             {
                 Console.WriteLine("Enter string: ");
                 string myString = Console.ReadLine();
 
                 for (int i = 1; i < myString.Length; i++)
+                {
                     if (myString[i] == myString[0])
                     {
                         myString = myString.Insert(i, "$");
                         myString = myString.Remove(i + 1, 1);
                     }
+                }
                 Console.WriteLine(myString);
             }
 
@@ -273,10 +293,10 @@ namespace Teme
                 string newString = str.Substring(startIndex, endIndex - startIndex);
                 Console.WriteLine(newString);
             }
-
+            
             //19.Write a method to find the first appearance of the substring 'not' and 'poor' from a given string, 
             //if 'not' follows the 'poor', replace the whole 'not'...'poor' substring with 'good'. Return the resulting string
-            static void notPoor()
+            static void NotThatPoor() //refacut
             {
                 string input1 = "The Romanians are not that poor!";
                 Console.WriteLine($"{input1} => {NotPoor(input1)}.");
@@ -286,31 +306,33 @@ namespace Teme
 
             static string NotPoor(string input)
             {
-                if (input.Contains("not") && input.IndexOf("not") < input.IndexOf("poor"))
+                if (input.Contains("not") && input.IndexOf("not") < input.IndexOf("poor")) 
                 {
-                    return input.Substring(0, input.IndexOf("not")) + "good" + input.Substring(input.IndexOf("poor") + 4);
+                    return input.Substring(0, input.IndexOf("not")) + "good" + input.Substring(input.IndexOf("poor"));
                 }
                 return input;
             }
 
-
+    
             //20.Write a method that takes a list of words and returns the length of the longest one
-            static void LongestWord()
+            static void LongestWord() //refacut
             {
                 string line = "Oare de ce trebuie sa avem teme de facut in vacanta ?";
                 string[] words = line.Split(new[] { " " }, StringSplitOptions.None);
-                string word = "";
-                int ctr = 0;
+                string longestWord = "";
+                int max = 0;
                 foreach (String s in words)
                 {
-                    if (s.Length > ctr)
+                    for (int i = 0; i < words.Length; i++)
                     {
-                        word = s;
-                        ctr = s.Length;
+                        if (s.Length > max)
+                        {
+                            longestWord = s;
+                            max = s.Length;
+                        }
                     }
                 }
-
-                Console.WriteLine(word);
+                Console.WriteLine(longestWord);
             }
 
 
@@ -348,10 +370,22 @@ namespace Teme
 
 
             //24.Write a method to swap comma and dot in a string
-            static void SwpaComma()
+            static void SwapComma() //refacut
             {
                 var s = "5,345,433,963";
-                s = s.Replace(",", ".");
+                for (int i = 0; i < s.Length; i++)
+                {
+                    if (s[i].ToString() == ",")
+                    {
+                        s = s.Remove(i, 1).Insert(i, ".");
+                        i++;
+                    }
+                    if (s[i].ToString() == ".")
+                    {
+                        s = s.Remove(i, 1).Insert(i, ",");
+                        i++;
+                    }
+                }
                 Console.WriteLine(s);
             }
 
@@ -387,6 +421,27 @@ namespace Teme
                     Console.WriteLine("" + palindrome + " is not a Palindrome!");
                 }
                 Console.Read();
+            }
+
+            /*
+            26.Obfucate Email
+            You have some text that contains your email address. And you want to hide that. You decide to censor your email: 
+            to replace all characters in it with asterisks ('*') except the domain. Assume your email address will always be in format [username]@[domain]. 
+            You need to replace the username with asterisks of equal number of letters and keep the domain unchanged. 
+            You will get as input the email address you need to obfuscate
+            Input: awesome@dotnet.com
+            Output: *******@dotnet.com
+            */
+
+            static void ObfucateEmail()
+            {
+                string email = "awsome@dotnet.com";
+                int hiddenChars = email.IndexOf('@');
+                string censor = new String('*', hiddenChars);
+                string domain = email.Substring(email.IndexOf('@'));
+
+                Console.WriteLine(censor + domain);
+
             }
         }
     }
